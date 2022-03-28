@@ -1,3 +1,4 @@
 <?php
-	echo "Hello from PHP!"
-?>
+
+header("Content-Type: text/plain");
+echo "Hello from PHP!";
