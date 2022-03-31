@@ -6,5 +6,6 @@ RUN mvn package
 
 FROM openjdk:17.0.2
 WORKDIR /app
+COPY ./lorem-ipsum.txt ./
 COPY --from=builder target/PerformanceServer.jar ./PerformanceServer.jar
 CMD ["java", "-jar", "./PerformanceServer.jar"]
