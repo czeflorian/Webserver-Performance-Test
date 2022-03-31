@@ -67,7 +67,7 @@ func main() {
 		w.Header().Add("Content-Type", "text/plain")
 		logToConsole(r.URL.RequestURI())
 
-		content, err := ioutil.ReadFile("../lorem-ipsum.txt")
+		content, err := ioutil.ReadFile("./lorem-ipsum.txt")
 
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
