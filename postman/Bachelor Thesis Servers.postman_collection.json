@@ -1,0 +1,752 @@
+{
+	"info": {
+		"_postman_id": "96b593de-8d5e-4ccf-b1c2-61df71ca82fe",
+		"name": "Bachelor Thesis Servers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Go",
+			"item": [
+				{
+					"name": "Go Server OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/ok",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ok"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Go Server Factorial Iterative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/calc-factorial-iterative?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"calc-factorial-iterative"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Go Server Factorial Recursive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/calc-factorial-recursive?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"calc-factorial-recursive"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Go Server Read File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/read-file",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"read-file"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Java",
+			"item": [
+				{
+					"name": "Java Server OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/ok",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"ok"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Java Server Factorial Iterative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/calc-factorial-iterative?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"calc-factorial-iterative"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Java Server Factorial Recursive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/calc-factorial-recursive?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"calc-factorial-recursive"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Java Server Read File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/read-file",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"read-file"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NodeJS",
+			"item": [
+				{
+					"name": "NodeJS Server OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/ok",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ok"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NodeJS Server Factorial Iterative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/calc-factorial-iterative?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"calc-factorial-iterative"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NodeJS Server Factorial Recursive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/calc-factorial-recursive?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"calc-factorial-recursive"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NodeJS Server Read File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/read-file",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"read-file"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PHP",
+			"item": [
+				{
+					"name": "PHP Server OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/ok",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"ok"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PHP Server Factorial Iterative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/calc-factorial-iterative?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"calc-factorial-iterative"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PHP Server Factorial Recursive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/calc-factorial-recursive?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"calc-factorial-recursive"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PHP Server Read File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/read-file",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"read-file"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Python",
+			"item": [
+				{
+					"name": "Python Server OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/ok",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"ok"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Python Server Factorial Iterative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/calc-factorial-iterative?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"calc-factorial-iterative"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Python Server Factorial Recursive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const fac = (num) => {\r",
+									"    if (num <= 1) return 1;\r",
+									"\r",
+									"    return num * fac(num - 1);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Correct result test\", function () {\r",
+									"    const numberInput = parseInt(pm.collectionVariables.get(\"factorial_number\"));\r",
+									"\r",
+									"    const expectedResult = fac(numberInput);\r",
+									"\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    pm.expect(response).to.equal(expectedResult);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/calc-factorial-recursive?num={{factorial_number}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"calc-factorial-recursive"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "{{factorial_number}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Python Server Read File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/read-file",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"read-file"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "factorial_number",
+			"value": "7"
+		}
+	]
+}
