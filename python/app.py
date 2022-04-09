@@ -1,7 +1,9 @@
 import logging
 import datetime
+import json
 from flask import Flask, request
 from flask import Response
+from numpy import *
 app = Flask(__name__)
 
 logger = logging.getLogger('waitress')
@@ -22,6 +24,33 @@ def calc_factorial_recursive(num):
         return 1
 
     return num * calc_factorial_recursive(num - 1)
+
+
+def permutations(input_string):
+    permutations = []
+    input_chars = list(input_string)
+    input_length = len(input_chars)
+
+    def helper(arr, size):
+        if size == 1:
+            arr_copy = arr.copy()
+            str_val = ''.join(arr_copy)
+            permutations.append(str_val)
+
+        for i in range(size):
+            helper(arr, size-1)
+
+            # if size is odd, swap 0th i.e (first)
+            # and (size-1)th i.e (last) element
+            # else If size is even, swap ith
+            # and (size-1)th i.e (last) element
+            if size & 1:
+                arr[0], arr[size-1] = arr[size-1], arr[0]
+            else:
+                arr[i], arr[size-1] = arr[size-1], arr[i]
+
+    helper(input_chars, input_length)
+    return permutations
 
 
 @app.route("/calc-factorial-iterative")
@@ -58,6 +87,19 @@ def recursive():
 
     result = calc_factorial_recursive(num_arg)
     return Response(str(result), status=200, content_type="application/json")
+
+
+@app.route("/calc-string-permutations")
+def string_perms():
+    args = request.args
+    string_arg = args.get("string")
+
+    logger.debug(f"num arg is: {string_arg}; with type: {type(string_arg)}")
+    logger.info(
+        f"[{datetime.datetime.now().isoformat()}] - Request: {request.url}")
+
+    perms = permutations(string_arg)
+    return Response(json.dumps(perms), status=200, content_type="application/json")
 
 
 @app.route("/read-file")

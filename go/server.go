@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -77,6 +78,24 @@ func main() {
 		w.Write(content)
 	})
 
+	http.HandleFunc("/calc-string-permutations", func(w http.ResponseWriter, r *http.Request) {
+		inputString := r.URL.Query().Get("string")
+		w.Header().Add("Content-Type", "application/json")
+
+		if inputString == "" {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+
+		result := permutations(inputString)
+
+		w.WriteHeader(http.StatusOK)
+
+		logToConsole(r.URL.RequestURI())
+		jsonResult, _ := json.Marshal(result)
+		w.Write(jsonResult)
+	})
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Content-Type", "text/plain")
 		logToConsole(r.URL.RequestURI())
@@ -85,6 +104,35 @@ func main() {
 
 	fmt.Println("Server running on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+
+func permutations(input string) []string {
+	var arr = []rune(input)
+	var helper func([]rune, int)
+	res := []string{}
+
+	helper = func(arr []rune, size int) {
+		if size == 1 {
+			tmp := make([]rune, len(arr))
+			copy(tmp, arr)
+			res = append(res, string(tmp))
+		} else {
+			for i := 0; i < size; i++ {
+				helper(arr, size-1)
+				if size%2 == 1 {
+					tmp := arr[i]
+					arr[i] = arr[size-1]
+					arr[size-1] = tmp
+				} else {
+					tmp := arr[0]
+					arr[0] = arr[size-1]
+					arr[size-1] = tmp
+				}
+			}
+		}
+	}
+	helper(arr, len(arr))
+	return res
 }
 
 func calcFactorialIterative(num uint64) uint64 {

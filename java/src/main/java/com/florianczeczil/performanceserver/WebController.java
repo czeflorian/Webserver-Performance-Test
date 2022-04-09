@@ -3,6 +3,7 @@ package com.florianczeczil.performanceserver;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -64,6 +65,22 @@ public class WebController {
       .ok()
       .headers(responseHeaders)
       .body(Long.toUnsignedString(res));
+  }
+
+  @GetMapping("/calc-string-permutations")
+  public ResponseEntity<ArrayList<String>> calcStringPermutations(
+    HttpServletRequest req,
+    @RequestParam("string") String input
+  ) {
+    HttpHeaders responseHeaders = new HttpHeaders();
+    responseHeaders.set("Content-Type", "application/json");
+
+    PermutationsGenerator pg = new PermutationsGenerator(input);
+    pg.generatePermutations();
+    ArrayList<String> perms = pg.getPermutations();
+
+    Logger.log(req.getRequestURI());
+    return ResponseEntity.ok().headers(responseHeaders).body(perms);
   }
 
   @GetMapping("/read-file")
