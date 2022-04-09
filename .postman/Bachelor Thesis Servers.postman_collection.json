@@ -14,10 +14,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/ok",
+							"raw": "http://{{host}}:8081/ok",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8081",
 							"path": [
@@ -58,10 +58,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/calc-factorial-iterative?num={{factorial_number}}",
+							"raw": "http://{{host}}:8081/calc-factorial-iterative?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8081",
 							"path": [
@@ -108,10 +108,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/calc-factorial-recursive?num={{factorial_number}}",
+							"raw": "http://{{host}}:8081/calc-factorial-recursive?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8081",
 							"path": [
@@ -133,10 +133,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/calc-string-permutations?string={{permutations_input}}",
+							"raw": "http://{{host}}:8081/calc-string-permutations?string={{permutations_input}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8081",
 							"path": [
@@ -171,10 +171,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/read-file",
+							"raw": "http://{{host}}:8081/read-file",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8081",
 							"path": [
@@ -195,10 +195,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/ok",
+							"raw": "http://{{host}}:8082/ok",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8082",
 							"path": [
@@ -239,10 +239,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/calc-factorial-iterative?num={{factorial_number}}",
+							"raw": "http://{{host}}:8082/calc-factorial-iterative?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8082",
 							"path": [
@@ -289,10 +289,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/calc-factorial-recursive?num={{factorial_number}}",
+							"raw": "http://{{host}}:8082/calc-factorial-recursive?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8082",
 							"path": [
@@ -314,10 +314,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/calc-string-permutations?string={{permutations_input}}",
+							"raw": "http://{{host}}:8082/calc-string-permutations?string={{permutations_input}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8082",
 							"path": [
@@ -352,10 +352,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/read-file",
+							"raw": "http://{{host}}:8082/read-file",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8082",
 							"path": [
@@ -376,10 +376,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/ok",
+							"raw": "http://{{host}}:8083/ok",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8083",
 							"path": [
@@ -420,10 +420,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/calc-factorial-iterative?num={{factorial_number}}",
+							"raw": "http://{{host}}:8083/calc-factorial-iterative?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8083",
 							"path": [
@@ -470,10 +470,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/calc-factorial-recursive?num={{factorial_number}}",
+							"raw": "http://{{host}}:8083/calc-factorial-recursive?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8083",
 							"path": [
@@ -495,10 +495,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/calc-string-permutations?string={{permutations_input}}",
+							"raw": "http://{{host}}:8083/calc-string-permutations?string={{permutations_input}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8083",
 							"path": [
@@ -533,10 +533,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/read-file",
+							"raw": "http://{{host}}:8083/read-file",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8083",
 							"path": [
@@ -557,10 +557,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8084/ok",
+							"raw": "http://{{host}}:8084/ok",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8084",
 							"path": [
@@ -601,10 +601,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8084/calc-factorial-iterative?num={{factorial_number}}",
+							"raw": "http://{{host}}:8084/calc-factorial-iterative?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8084",
 							"path": [
@@ -651,10 +651,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8084/calc-factorial-recursive?num={{factorial_number}}",
+							"raw": "http://{{host}}:8084/calc-factorial-recursive?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8084",
 							"path": [
@@ -676,10 +676,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8084/calc-string-permutations?string={{permutations_input}}",
+							"raw": "http://{{host}}:8084/calc-string-permutations?string={{permutations_input}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8084",
 							"path": [
@@ -714,10 +714,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8084/read-file",
+							"raw": "http://{{host}}:8084/read-file",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8084",
 							"path": [
@@ -738,10 +738,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8085/ok",
+							"raw": "http://{{host}}:8085/ok",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8085",
 							"path": [
@@ -782,10 +782,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8085/calc-factorial-iterative?num={{factorial_number}}",
+							"raw": "http://{{host}}:8085/calc-factorial-iterative?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8085",
 							"path": [
@@ -832,10 +832,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8085/calc-factorial-recursive?num={{factorial_number}}",
+							"raw": "http://{{host}}:8085/calc-factorial-recursive?num={{factorial_number}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8085",
 							"path": [
@@ -857,10 +857,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8085/calc-string-permutations?string={{permutations_input}}",
+							"raw": "http://{{host}}:8085/calc-string-permutations?string={{permutations_input}}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8085",
 							"path": [
@@ -895,10 +895,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8085/read-file",
+							"raw": "http://{{host}}:8085/read-file",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
 							"port": "8085",
 							"path": [
@@ -936,7 +936,7 @@
 	"variable": [
 		{
 			"key": "factorial_number",
-			"value": "20"
+			"value": "10"
 		},
 		{
 			"key": "test_file_contents",
@@ -945,8 +945,12 @@
 		},
 		{
 			"key": "permutations_input",
-			"value": "apricots",
+			"value": "brave",
 			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "localhost"
 		}
 	]
 }
