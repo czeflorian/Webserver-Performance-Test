@@ -5,9 +5,8 @@ This directory contains the Apache JMeter test files. To run them, you need to h
 ## Running the tests
 The tests in the file `tests.jmx` can be run in CLI Mode using the following Command:
 ```sh
-jmeter -n -t tests.jmx -Jserver_port=8081 -Jserver_host=raspberrypi.local
+jmeter -n -t tests.jmx -l csv/Raspi_Go.csv -e -o html/Raspi_Go -Jserver_port=8081 -Jserver_host=raspberrypi.local
 ```
-
 Where the value of `-Jserver_port` is the port of the server that should be tested on a specific run and `Jserver_host` is the host that the tests should be run against (the one running the docker-compose file at this projects root)
 
 ## Results
