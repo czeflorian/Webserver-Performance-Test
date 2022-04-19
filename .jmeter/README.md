@@ -3,7 +3,7 @@
 This directory contains the Apache JMeter test files. To run them, you need to have the tool installed locally. For information how it works, how to install it and how to create/modify tests, check out the [Documentation](https://jmeter.apache.org/usermanual/get-started.html)
 
 ## Running the tests
-The tests in the file `tests.jmx` can be run in CLI Mode using the following Command:
+The tests in the file `tests.jmx` can be run in CLI Mode using the following Command (you need to run it inside the `.jmeter` directory):
 ```sh
 jmeter -n -t tests.jmx -l csv/Raspi_Go.csv -e -o html/Raspi_Go -Jserver_port=8081 -Jserver_host=raspberrypi.local
 ```
