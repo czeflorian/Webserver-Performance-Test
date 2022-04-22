@@ -132,6 +132,7 @@ coverage
 
 # Bower dependency directory (https://bower.io/)
 bower_components
+!.jmeter/html/**/bower_components
 
 # node-waf configuration
 .lock-wscript
@@ -251,6 +252,7 @@ __pycache__/
 build/
 develop-eggs/
 dist/
+!.jmeter/html/**/dist
 downloads/
 eggs/
 .eggs/
