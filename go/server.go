@@ -120,12 +120,12 @@ func permutations(input string) []string {
 			for i := 0; i < size; i++ {
 				helper(arr, size-1)
 				if size%2 == 1 {
-					tmp := arr[i]
-					arr[i] = arr[size-1]
-					arr[size-1] = tmp
-				} else {
 					tmp := arr[0]
 					arr[0] = arr[size-1]
+					arr[size-1] = tmp
+				} else {
+					tmp := arr[i]
+					arr[i] = arr[size-1]
 					arr[size-1] = tmp
 				}
 			}
