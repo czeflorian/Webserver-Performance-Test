@@ -29,7 +29,10 @@ public class WebController {
   // endpoint that returns empty status 200 --> baseline for measurements
   @GetMapping("/ok")
   public ResponseEntity<String> ok(HttpServletRequest req) {
+    long start = System.nanoTime();
     Logger.log(req.getRequestURI());
+    long elapsed = System.nanoTime() - start;
+    MetricsCollector.addTimeToList("ok", elapsed);
     return ResponseEntity.ok().body("");
   }
 
@@ -38,12 +41,15 @@ public class WebController {
     HttpServletRequest req,
     @RequestParam("num") long num
   ) {
+    long start = System.nanoTime();
     HttpHeaders responseHeaders = new HttpHeaders();
     responseHeaders.set("Content-Type", "application/json");
 
     long res = FactorialCalculator.calcFactorialIterative(num);
 
     Logger.log(req.getRequestURI());
+    long elapsed = System.nanoTime() - start;
+    MetricsCollector.addTimeToList("facIter", elapsed);
     return ResponseEntity
       .ok()
       .headers(responseHeaders)
@@ -55,12 +61,15 @@ public class WebController {
     HttpServletRequest req,
     @RequestParam("num") long num
   ) {
+    long start = System.nanoTime();
     HttpHeaders responseHeaders = new HttpHeaders();
     responseHeaders.set("Content-Type", "application/json");
 
     long res = FactorialCalculator.calcFactorialRecursive(num);
 
     Logger.log(req.getRequestURI());
+    long elapsed = System.nanoTime() - start;
+    MetricsCollector.addTimeToList("facRec", elapsed);
     return ResponseEntity
       .ok()
       .headers(responseHeaders)
@@ -72,6 +81,7 @@ public class WebController {
     HttpServletRequest req,
     @RequestParam("string") String input
   ) {
+    long start = System.nanoTime();
     HttpHeaders responseHeaders = new HttpHeaders();
     responseHeaders.set("Content-Type", "application/json");
 
@@ -80,17 +90,22 @@ public class WebController {
     ArrayList<String> perms = pg.getPermutations();
 
     Logger.log(req.getRequestURI());
+    long elapsed = System.nanoTime() - start;
+    MetricsCollector.addTimeToList("stringPerms", elapsed);
     return ResponseEntity.ok().headers(responseHeaders).body(perms);
   }
 
   @GetMapping("/read-file")
   public ResponseEntity<String> readFile(HttpServletRequest req) {
+    long start = System.nanoTime();
     HttpHeaders responseHeaders = new HttpHeaders();
     responseHeaders.set("Content-Type", "text/plain");
 
     Logger.log(req.getRequestURI());
     try {
       String content = Files.readString(Path.of("lorem-ipsum.txt"));
+      long elapsed = System.nanoTime() - start;
+      MetricsCollector.addTimeToList("readFile", elapsed);
       return ResponseEntity.ok().headers(responseHeaders).body(content);
     } catch (IOException ex) {
       return ResponseEntity
