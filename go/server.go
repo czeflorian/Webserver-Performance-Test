@@ -157,8 +157,8 @@ func main() {
 		fmt.Fprintf(w, "Hello from Go!")
 	})
 
-	fmt.Println("Server running on http://localhost:8081")
-	log.Fatal(http.ListenAndServe(":8081", nil))
+	fmt.Println("Server running on http://localhost:8080")
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func permutations(input string) []string {
