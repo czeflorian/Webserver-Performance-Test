@@ -22,9 +22,9 @@ const stringPermsTimes = [];
 app.get('/ok', (req, res) => {
   const start = process.hrtime.bigint();
   logRequest(req.url);
-  res.status(200).setHeader('Content-Type', 'text/plain').send();
   const diff = process.hrtime.bigint() - start;
   okTimes.push(diff);
+  return res.status(200).setHeader('Content-Type', 'text/plain').send();
 });
 
 app.get('/calc-factorial-iterative', (req, res) => {
@@ -38,12 +38,12 @@ app.get('/calc-factorial-iterative', (req, res) => {
   if (calcRes === -1) return res.sendStatus(400);
 
   logRequest(req.url);
-  res
+  const diff = process.hrtime.bigint() - start;
+  facIterTimes.push(diff);
+  return res
     .status(200)
     .setHeader('Content-Type', 'application/json')
     .send(calcRes.toString());
-  const diff = process.hrtime.bigint() - start;
-  facIterTimes.push(diff);
 });
 
 app.get('/calc-factorial-recursive', (req, res) => {
@@ -57,12 +57,12 @@ app.get('/calc-factorial-recursive', (req, res) => {
   if (calcRes === -1) return res.sendStatus(400);
 
   logRequest(req.url);
-  res
+  const diff = process.hrtime.bigint() - start;
+  facRecTimes.push(diff);
+  return res
     .status(200)
     .setHeader('Content-Type', 'application/json')
     .send(calcRes.toString());
-  const diff = process.hrtime.bigint() - start;
-  facRecTimes.push(diff);
 });
 
 app.get('/calc-string-permutations', (req, res) => {
@@ -76,9 +76,12 @@ app.get('/calc-string-permutations', (req, res) => {
   if (!perms) return res.sendStatus(400);
 
   logRequest(req.url);
-  res.status(200).setHeader('Content-Type', 'application/json').send(perms);
   const diff = process.hrtime.bigint() - start;
   stringPermsTimes.push(diff);
+  return res
+    .status(200)
+    .setHeader('Content-Type', 'application/json')
+    .send(perms);
 });
 
 app.get('/read-file', async (req, res) => {
@@ -86,9 +89,12 @@ app.get('/read-file', async (req, res) => {
   logRequest(req.url);
   try {
     const fileContent = await readFilePromise('./lorem-ipsum.txt');
-    res.status(200).setHeader('Content-Type', 'text/plain').send(fileContent);
     const diff = process.hrtime.bigint() - start;
     readFileTimes.push(diff);
+    return res
+      .status(200)
+      .setHeader('Content-Type', 'text/plain')
+      .send(fileContent);
   } catch {
     res.status(500).send('Could not find file!');
   }
