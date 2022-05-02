@@ -3,6 +3,7 @@ services:
   go:
     build: ./go
     stop_signal: SIGINT
+    container_name: go
     ports:
       - "8081:8080"
     volumes:
@@ -10,6 +11,7 @@ services:
   java:
     build: ./java
     stop_signal: SIGINT
+    container_name: java
     ports:
       - "8082:8080"
     volumes:
@@ -17,6 +19,7 @@ services:
   node:
     build: ./node
     stop_signal: SIGINT
+    container_name: node
     ports:
       - "8083:8080"
     volumes:
@@ -24,6 +27,7 @@ services:
   php:
     build: ./php
     stop_signal: SIGINT
+    container_name: php
     ports:
       - "8084:80"
     volumes:
@@ -31,6 +35,7 @@ services:
   python:
     build: ./python
     stop_signal: SIGINT
+    container_name: python
     ports:
       - "8085:8080"
     volumes:
