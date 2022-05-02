@@ -5,11 +5,12 @@
 ### Custom ###
 /*/stats
 
-# the following 4 should ONLY be uncommented, if you want to OVERWRITE the commited results!
-metrics
-stats
-.jmeter/html
-.jmeter/csv
+# the following 4 are commented out so that the results can stay in the repository and thus always be accessed
+# metrics
+# stats
+# .jmeter/html
+# .jmeter/csv
+
 ### Go ###
 # If you prefer the allow list template instead of the deny list, see community template:
 # https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
