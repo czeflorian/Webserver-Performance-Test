@@ -31,9 +31,6 @@ echo calcFactorialRecursive($number);
 $diff = hrtime(true) - $start;
 
 if(!file_exists("./stats/factorial_recursive_times.csv")){
-	if(!file_exists("./stats")){
-		mkdir("./stats", 0777, true);
-	}
 	$fp = fopen('stats/factorial_recursive_times.csv', "w");
 	fwrite($fp, "Factorial Recursive Times (ns);\n" . $diff . ";\n");
 	fclose($fp);

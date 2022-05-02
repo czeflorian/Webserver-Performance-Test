@@ -59,9 +59,6 @@ echo json_encode(generateStringPermutations($input)) . "\n";
 $diff = hrtime(true) - $start;
 
 if(!file_exists("./stats/string_permutations_times.csv")){
-	if(!file_exists("./stats")){
-		mkdir("./stats", 0777, true);
-	}
 	$fp = fopen('stats/string_permutations_times.csv', "w");
 	fwrite($fp, "String Permutation Times (ns);\n" . $diff . ";\n");
 	fclose($fp);

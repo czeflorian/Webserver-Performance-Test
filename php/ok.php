@@ -11,9 +11,6 @@ if ($method !== 'GET') {
 $diff = hrtime(true) - $start;
 
 if(!file_exists("./stats/ok_times.csv")){
-	if(!file_exists("./stats")){
-		mkdir("./stats", 0777, true);
-	}
 	$fp = fopen('stats/ok_times.csv', "w");
 	fwrite($fp, "OK Endpoint Times (ns);\n" . $diff . ";\n");
 	fclose($fp);

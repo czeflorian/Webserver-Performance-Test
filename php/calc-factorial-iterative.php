@@ -33,9 +33,6 @@ echo calcFactorialIterative($number);
 $diff = hrtime(true) - $start;
 
 if(!file_exists("./stats/factorial_iterative_times.csv")){
-	if(!file_exists("./stats")){
-		mkdir("./stats", 0777, true);
-	}
 	$fp = fopen('stats/factorial_iterative_times.csv', "w");
 	fwrite($fp, "Factorial Iterative Times (ns);\n" . $diff . ";\n");
 	fclose($fp);
