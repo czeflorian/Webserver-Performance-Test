@@ -242,5 +242,5 @@ process.on('SIGINT', async function () {
   clearInterval(interval);
   await writeFiles();
 
-  process.exit();
+  process.exit(0);
 });
