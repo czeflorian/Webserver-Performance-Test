@@ -11,7 +11,5 @@
   "dependencies": {
     "express": "^4.17.3"
   },
-  "devDependencies": {
-    "os-utils": "^0.0.14"
-  }
+  "devDependencies": {}
 }

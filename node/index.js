@@ -1,7 +1,6 @@
 const express = require('express');
 const fs = require('fs');
 const util = require('util');
-const osUtils = require('os-utils');
 const path = require('path');
 
 const app = express();
@@ -179,30 +178,12 @@ const permutations = (inputString) => {
   return permutations;
 };
 
-const logCpuAndRam = () => {
-  ramUsages.push(process.memoryUsage().heapUsed);
-  osUtils.cpuUsage((usage) => {
-    cpuUsages.push(usage);
-  });
-};
-
 const logRequest = (queryString) => {
   console.log(`[${new Date().toISOString()}] - Request: ${queryString}`);
 };
 
 const writeFiles = async () => {
   await mkDirPromise(path.join('./', 'stats'), { recursive: true });
-
-  //write cpu and ram usages to file
-  let cpuRamFileString = 'CPU Usage (%), Memory Used (bytes);\n';
-  for (let i = 0; i < cpuUsages.length; i++) {
-    cpuRamFileString += `${cpuUsages[i]},${ramUsages[i]};\n`;
-  }
-  await writeFilePromise(
-    path.join('./', 'stats', 'cpu_mem_node.csv'),
-    cpuRamFileString
-  );
-
   //write all the endpoint files
   let okTimesString = 'OK Endpoint Times (ns);\n';
   okTimes.forEach((time) => (okTimesString += `${time};\n`));
@@ -240,12 +221,8 @@ const writeFiles = async () => {
   );
 };
 
-const interval = setInterval(logCpuAndRam, 1000);
-
 process.on('SIGINT', async function () {
   console.log('Caught interrupt signal');
-
-  clearInterval(interval);
   await writeFiles();
 
   process.exit(0);
