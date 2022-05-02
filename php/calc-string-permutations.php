@@ -36,6 +36,8 @@ function generateStringPermutations($inputString)
 	return $permutations;
 }
 
+$start = hrtime(true);
+
 header("Content-Type: application/json");
 
 $method = $_SERVER["REQUEST_METHOD"];
@@ -53,3 +55,18 @@ if ($input === "") {
 }
 
 echo json_encode(generateStringPermutations($input)) . "\n";
+
+$diff = hrtime(true) - $start;
+
+if(!file_exists("./stats/string_permutations_times.csv")){
+	if(!file_exists("./stats")){
+		mkdir("./stats", 0777, true);
+	}
+	$fp = fopen('stats/string_permutations_times.csv', "w");
+	fwrite($fp, "String Permutation Times (ns);\n" . $diff . ";\n");
+	fclose($fp);
+}else{
+	$fp = fopen('stats/string_permutations_times.csv', "a");
+	fwrite($fp, $diff . ";\n");
+	fclose($fp);
+}
