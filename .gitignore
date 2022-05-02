@@ -3,7 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,node,python,java,go,visualstudiocode
 
 ### Custom ###
-# stats
+/*/stats
 # metrics
 # .jmeter/html
 # .jmeter/csv
