@@ -1,3 +1,4 @@
+rm -r metrics/
 mkdir metrics/
 
 echo "Container,CPU Usage,Memory Usage;" > metrics/node_metrics.csv
